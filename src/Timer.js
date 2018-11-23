@@ -30,6 +30,14 @@ class Timer extends Component {
     );
   }
 
+  componentDidMount() {
+    this.interval = setInterval(this.clockTick, 1000)
+  }
+
+  componentWillUnmount() {
+    this.stopClock()
+  }
+
   //clock functions
   clockTick = () => {
     this.setState(prevState => ({
