@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+let time
 class Timer extends Component {
 
   state = {
@@ -8,6 +9,21 @@ class Timer extends Component {
   }
 
   // add your code here
+  addTime = () => {
+    time = this.state.time
+    this.setState({
+    time: ++time,
+    ...this.state.color
+    })
+  }
+
+  componentDidMount() {
+  this.interval = setInterval(this.addTime, 1000)
+  }
+
+componentWillUnmount() {
+  clearInterval(this.interval)
+}
 
 
 
